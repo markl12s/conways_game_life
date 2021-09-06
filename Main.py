@@ -1,6 +1,6 @@
 """
 Conway's game of life, Mark Leard
-v 1.1.0
+v 1.1.1
 
 last change: finished the main functionality
 
@@ -9,7 +9,8 @@ create check cell functions for sides and corners
 start to figure out how the led's will work
 find a cool pattern that will work for the final version/as decoration
 
-next task: debugging
+next task: figure out if it's functioning
+I unironically cannot tell
 """
 
 #board initial state
@@ -23,7 +24,18 @@ board = [[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-board_swap = board
+
+#board_switching
+board_swap = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 #functions/architecture
 def check_cell(target_cell_x, target_cell_y):
@@ -71,9 +83,9 @@ def turn_check():
 def add_row(middle_x, middle_y):
     row = []
 
-    row.append(board[middle_x][middle_y - 1])
-    row.append(board[middle_x][middle_y])
-    row.append(board[middle_x][(middle_y + 1) % 10])
+    row.append(board[(middle_x) % 10][(middle_y - 1) % 10])
+    row.append(board[(middle_x) % 10][middle_y])
+    row.append(board[(middle_x) % 10][(middle_y + 1) % 10])
 
     return sum(row)
 
@@ -152,11 +164,8 @@ def bot_right_corner():
 
 #execution
 print(board)
-turn_check()
-board = board_swap
-print(board)
 
-"""while True:
+while True:
     turn_check()
     board = board_swap
-    print(board)"""
+    print(board)
