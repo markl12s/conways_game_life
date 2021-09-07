@@ -2,21 +2,15 @@
 Conway's game of life, Mark Leard
 v 1.1.1
 
-last change: finished the main functionality
+last change: completed
 
-things to do
-create check cell functions for sides and corners
-start to figure out how the led's will work
-find a cool pattern that will work for the final version/as decoration
-
-next task: figure out if it's functioning
-I unironically cannot tell
+next task: plan physical build
 """
 
 #board initial state
-board = [[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-         [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+board = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
